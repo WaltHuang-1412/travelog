@@ -1,21 +1,29 @@
-<template>
-  <v-app>
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+<template lang="pug">
+component(:is="layout")
+  router-view
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
+import { useRoute } from 'vue-router'
 
 export default defineComponent({
-  name: 'App',
-
-  data () {
+  setup() {
+    const route = useRoute()
+    const layout = computed(() => route.meta.layout)
     return {
-      //
+      layout
     }
   }
 })
 </script>
+<style lang="scss">
+@import '@/assets/styles/transition';
+@import '@/assets/styles/_reboot';
+@import '@/assets/styles/ant-design';
+
+#app {
+  width: 100vw;
+  height: 100vh;
+}
+</style>
