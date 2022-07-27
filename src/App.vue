@@ -18,8 +18,7 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@/assets/styles/transition';
-@import '@/assets/styles/_reboot';
+@import '@/assets/styles/app.scss';
 @import '@/assets/styles/ant-design';
 
 #app {
